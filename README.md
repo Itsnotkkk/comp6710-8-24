@@ -1,5 +1,7 @@
 ANU_COMP6710-1110Practices
 
+如果对您有用的话，请点击Star
+
 我是 2025S1 入学的，这也是 Functional Java 的首次登场。
 遥想当年，有一位学子问 Fabian：
 

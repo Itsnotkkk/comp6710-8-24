@@ -24,6 +24,20 @@ import static comp1110.testing.Comp1110Unit.*;
  */
 Maybe<String> ContainsString(ConsList<String> conslist,String s){
     // TODO
+    //soLUTION1
+    // for(int i = 0;i<Length(conslist);i++){
+    //     if(Contains(Nth(conslist,i),s)){
+    //         return new Something<>(s);
+    //     }
+    // }
+    // return new Nothing<>();
+
+    // Solution2
+        return switch(conslist){
+        case Nil()->  new Nothing<>();
+        case Cons(var first,var rest)-> Equals(first,s)?new Something<>(s):ContainsString(rest,s);
+    };
+
 }
 
 

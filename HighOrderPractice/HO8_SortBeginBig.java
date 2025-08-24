@@ -7,7 +7,13 @@ void main(){
     println("ggogo");
     test();
 }
-
+/*
+ * Copyright (c) 2025, Henghuan Li
+ * All rights reserved.
+ *
+ * This code is written for COMP6710 Functional Java practices.
+ * Redistribution or use without permission is prohibited.
+ */
 
 /**
  * Sorts the given ConsList<T> in descending order (largest elements first).

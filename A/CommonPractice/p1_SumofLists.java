@@ -21,11 +21,58 @@ import static comp1110.testing.Comp1110Unit.*;
  */
 int SumofListInt(ConsList<Integer> conslist){
     //TODO
+     // solution1
+
+//    return Fold((x,y)->x+y,0,conslist);
+     // solution2
+
+    //  int result = 0;
+    //  for(int i =0;i<Length(conslist);i++){
+    //     result += Nth(conslist,i);
+    //  }
+    //  return result;
+
+    // solution3
+    return switch(conslist){
+        case Nil()-> 0;
+        case Cons(var first,var rest)-> first+SumofListInt(rest);
+    };
+
 
 }
-
+/**
+ * Concatenates all string elements in a given ConsList<String>.
+ *
+ * Examples:
+ *  given: SumofListString(Nil<String>())
+ *  expects: ""
+ *
+ *  given: SumofListString(Cons("Hello", Nil<String>()))
+ *  expects: "Hello"
+ *
+ *  given: SumofListString(Cons("a", Cons("b", Cons("c", Nil<String>()))))
+ *  expects: "abc"
+ *
+ * @param conslist the list of strings to concatenate; may be empty (Nil) or non-empty (Cons)
+ * @return a single string formed by concatenating all elements of the list
+ */
 String SumofListString(ConsList<String> conslist){
     //TODO
+    // solution1
+    // return Fold((x,y)->x+y,"",conslist);
+     // solution2
+
+    //  String result ="";
+    //  for(int i =0;i<Length(conslist);i++){
+    //     result += Nth(conslist,i);
+    //  }
+    //  return result;
+
+    // solution3
+    return switch(conslist){
+        case Nil()-> "";
+        case Cons(var first,var rest)-> first+SumofListString(rest);
+    };
     
 }
 
@@ -35,42 +82,48 @@ void main(){
     test();
     
 }
-// SumofListTest1
-void SumofListTest1(){
-    testEqual(10, SumofList(MakeList(1,2,3,4)));
+
+
+
+// SumofListIntTests
+
+void SumofListIntTest1() {
+    testEqual(0, SumofListInt(MakeList()));
 }
 
-void SumofListTest2(){
-    testEqual(0,SumofList(MakeList()));
-}
-void SumofListTest3(){
-    testEqual(0,SumofList(MakeList(0,0,0,0,0)));
-}
-void SumofListTest4(){
-    testEqual(0,SumofList(MakeList(-1,1,1,-1)));
+void SumofListIntTest2() {
+    testEqual(5, SumofListInt(MakeList(5)));
 }
 
-void SumofTwoConsListsTest1(){
-    testEqual(
-        MakeList(10, 10, 10, 10), 
-    SumofTwoConsLists(
-        MakeList(1, 3, 4, 5),
-        MakeList(9, 7, 6, 5)
-        )
-    );
+void SumofListIntTest3() {
+    testEqual(6, SumofListInt(MakeList(1, 2, 3)));
 }
 
+// SumofListStringTests
 
+void SumofListStringTest1() {
+    testEqual("", SumofListString(MakeList()));
+}
 
+void SumofListStringTest2() {
+    testEqual("Hello", SumofListString(MakeList("Hello")));
+}
 
+void SumofListStringTest3() {
+    testEqual("abc", SumofListString(MakeList("a", "b", "c")));
+}
 
-void test(){
-    println("SumofListTests Start");
-    runAsTest(this::SumofListTest1);
-    runAsTest(this::SumofListTest2);
-    runAsTest(this::SumofListTest3);
-    runAsTest(this::SumofListTest4);
-    println("SumofListTests End");
+void test() {
+    println("SumofListIntTests Start");
+    runAsTest(this::SumofListIntTest1);
+    runAsTest(this::SumofListIntTest2);
+    runAsTest(this::SumofListIntTest3);
+    println("SumofListIntTests End");
 
+    println("SumofListStringTests Start");
+    runAsTest(this::SumofListStringTest1);
+    runAsTest(this::SumofListStringTest2);
+    runAsTest(this::SumofListStringTest3);
+    println("SumofListStringTests End");
 }
 
